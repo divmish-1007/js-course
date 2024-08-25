@@ -36,7 +36,7 @@ console.log(obj3);
 console.log(obj1 === obj5); // "False", target is changed to '{}' from obj1
 
 // Spread Operator
-
+ 
 const obj6 = {...obj1, ...obj2, ...obj4}
 // console.log(obj6);
 
@@ -63,3 +63,25 @@ console.log(Object.keys(tinderUser1));
 console.log(Object.values(tinderUser1));
 
 console.log(tinderUser1.hasOwnProperty('isLoggedIn'));
+
+// Destructuring 
+
+const course={
+    coursename: "Js in Hindi",
+    price: 999,
+    courseInstructor: "Hitesh"
+}
+
+const {courseInstructor} = course
+const {courseInstructor:inst} = course
+
+console.log(courseInstructor)
+console.log(inst)
+
+// Api values comes in JSON form
+
+// {
+//     "name":"Hitesh",
+//     "coursename": "Js in Hindi",
+//     "Price": "free"
+// }
