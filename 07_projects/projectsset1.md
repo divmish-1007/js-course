@@ -43,57 +43,46 @@ buttons.forEach(function (btn) {
 
 ```JavaScript
 
-.container{
-    height: 825px;
-    width: 575px;
+const form = document.querySelector('form')
+// This use case will give you empty value
+// const height =  parseInt(document.querySelector('#height').value)
 
-    background-color: #87a4ab;
-    padding-left: 30px;
-    margin-left: 30%;
-}
+form.addEventListener('submit', function(e){
+    e.preventDefault()
 
-#height,
-#weight{
-    width: 150px;
-    height: 20px;
-    margin-top: 30px;
-}
-#weight-guide{
-    margin-left: 75px;
-    margin-top: 25px;
-}
+   const height =  parseInt(document.querySelector('#height').value);
+   const weight =  parseInt(document.querySelector('#weight').value);
+   const results = document.querySelector('#results');
+   const message = document.querySelector('#message');
 
-#results{
-    font-size: 35px;
-    margin-left: 90px;
-    margin-top: 20px;
-    color: rgb(241, 241, 241);
-}
-#message{
-    font-size: 35px;
-    margin-left: 90px;
-    margin-top: 20px;
-    color: rgb(241, 241, 241);
-}
+   if(height === '' || height<0 || isNaN(height)){
+    results.innerHTML = `Please Give a valid Height ${height}`; 
+   }
+   else if(weight === '' || weight<0 || isNaN(weight)){
+    results.innerHTML = `Please Give a valid weight ${weight}`; 
+   }
+  else{
+    const bmi = (weight / ((height*height)/10000)).toFixed(2)
+    // show the result
+    results.innerHTML = `<span> ${bmi} </span>`
+    const result = results.textContent
 
-button{
-    width:150px;
-    height: 35px;
-    margin-left: 90px;
-    margin-top: 25px;
-    background-color: #fff;
-    padding: 1px, 30px;
-    border-radius: 8px;
-    color: #212121;
-    text-decoration: none;
-    border: 2px solid #212121;
-    font-size: 25px;
-}
+    if( result < 18.6){
+        message.innerHTML = `<span> Under Weight </span>`
+       
+    }
+    else if(result>=18.6 &&  result <= 24.9){
+        message.textContent = `Normal Weight `
+        
+    }
+    else if( result > 24.9){
+        message.innerHTML = `<span>Overweight</span>`
+        
+    }
+    
+  }
+})
 
-h1{
-    padding-left: 15px;
-    padding-top: 25px;
-}
 
 ```
 ## Project 3 Solution code
