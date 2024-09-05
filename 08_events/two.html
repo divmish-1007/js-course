@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>Chai Aur Code</H1>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+    // setTimeout(function(){
+    //     console.log('Kachra')
+    // }, 2000)
+
+// Similiraly We can also write
+
+    const sayHitesh = function(){
+        console.log("Hitesh");
+    }
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "Best JS course"
+    }
+    
+
+    setTimeout(sayHitesh, 3000)
+    // setTimeout(changeText, 2000)
+const changeME = setTimeout(changeText, 2000);
+    
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeME)
+        console.log("STOPPED")
+    })
+
+</script>
+</html>
