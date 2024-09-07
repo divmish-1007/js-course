@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur Javascript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+
+    // We can pass a 3rd Parrameter also
+    const sayDate = function(str){
+        console.log(str, Date.now());
+    }
+
+    // setInterval(sayDate, 2000, "hi")
+
+
+    // setInterval(function(){
+    //     console.log("Hitesh", Date.now());
+    // }, 2000)
+
+// ClearInterval
+
+    var interValId;
+    document.querySelector('#start').addEventListener('click', function(){
+        interValId = setInterval(sayDate, 2000, "hi")
+        console.log("start")
+    })
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearInterval(interValId)
+        console.log("STOPPED")
+    })
+
+   
+</script>
+</html>
