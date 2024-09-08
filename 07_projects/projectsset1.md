@@ -39,6 +39,7 @@ buttons.forEach(function (btn) {
 });
 ```
 
+
 ## Project 2 Solution
 
 ```JavaScript
@@ -85,6 +86,8 @@ form.addEventListener('submit', function(e){
 
 
 ```
+
+
 ## Project 3 Solution code
 ```JavaScript
 
@@ -104,6 +107,7 @@ setInterval(function(){
     clock.innerHTML = date.toLocaleTimeString();
 }, 1000)
 ```
+
 
 ## Project 4 solution code
 
@@ -207,4 +211,64 @@ function newGame(){
         playGame = true;
     })
 }
+```
+
+### Project 5 Solution code
+```Javascript
+const insert = document.getElementById('insert');
+
+window.addEventListener('keydown', (e)=>{
+    insert.innerHTML= 
+    `<div class= "color ">
+        <table>
+            <tr>
+                <th>Key</th>
+                <th>KeyCode</th>
+                <th>Code</th>
+            </tr>
+            <tr>
+                <th>${e.key === " " ? "Space": e.key}</th>
+                <th>${e.keyCode}</th>
+                <th>${e.code}</th>
+            </tr>
+        </table>
+    </div>`
+})
+```
+
+### Project 6 Solution Code
+```Javascript
+// generate a random color
+
+const randomColor =  function () {
+    const hex = "0123456789ABCDEF"
+    let color = '#'
+    for(let i=0; i<6; i++){
+        color += hex[Math.floor(Math.random() * 16)]
+    }
+    return color;
+}
+
+let inetervalId;
+const startChangingColor = function(){
+
+    if(inetervalId == null){
+        inetervalId =  setInterval(changeBgColor, 1000);
+    }
+
+    function changeBgColor(){
+        document.body.style.backgroundColor = randomColor();
+   }
+   
+}
+
+
+const stopChangingColor = function(){
+    clearInterval(inetervalId);
+    inetervalId = null;
+}
+
+document.querySelector('#start').addEventListener('click', startChangingColor);
+
+document.querySelector('#stop').addEventListener('click', stopChangingColor)
 ```
