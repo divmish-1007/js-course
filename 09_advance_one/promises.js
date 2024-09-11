@@ -41,7 +41,7 @@ promiseThree.then(function(user){
 
 const promiseFour = new Promise(function(resolve, reject){
     setTimeout(function(){
-        let error = true;
+        let error = false;
         if(!error){
             resolve({username:"hitesh", password:"123"});
         }
@@ -56,7 +56,7 @@ promiseFour
     console.log(user);
     return user.username
 })
-.then((username)=>{   // Chaining: return value from above function get as parameter insdie then
+.then((username)=>{   // Chaining: returned value from above function get as parameter insdie then
     console.log(username)
 })
 .catch(function(err){   // Check Error 
@@ -105,7 +105,7 @@ async function getAllUsers() {
 
 // getAllUsers();
 
-fetch('https://jsonplaceholder.typicode.com/users')
+fetch('https://api.github.com/users/divmish-1007')
 .then((response)=>{
     return response.json()
 })
