@@ -1,6 +1,7 @@
 ## Javascript and Classes
 
 ## OOP's:
+- programming Paradyine or style of write the code-
 
 ### Object: 
 - collection of properties and methods
@@ -13,7 +14,7 @@
 ## Parts of OOP's
 object Literal
 
-- constructor
+- constructor: function
 - Prototypes
 - classes
 - Instances (new,  this)
