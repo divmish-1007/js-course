@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure and lexical</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+   
+    <script>
+
+        // Lexical
+
+        // function outer(){
+        //     let username = "Divmish"
+        //     function inner(){
+        //         console.log("inner", username);
+        //     }
+        //     inner();
+        // }
+        // outer();
+
+        // Closure
+
+        function makeFunc(){
+            const name = "divakar";
+            function displayName(){
+                console.log(name);
+            }
+            return displayName;   // it return's the entire lexical scope
+        }
+
+        const myfun = makeFunc();
+        myfun();
+    </script>
+    <script>
+        // Individual
+        // document.getElementById("orange").onclick = function(){
+        //     document.body.style.backgroundColor = "orange"
+        // }
+        // document.getElementById("green").onclick = function(){
+        //     document.body.style.backgroundColor = "green"
+        // }
+// Generic
+        function clickHandeler(color){
+            // document.body.style.backgroundColor = `${color}`
+
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+            
+        }
+
+        document.getElementById("orange").onclick = clickHandeler('orange');
+        document.getElementById("green").onclick = clickHandeler('green');
+
+    </script>
+</html>
